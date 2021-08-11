@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        rowGap: 67,
+        rowGap: 48,
         columnGap: 40,
         paddingBottom: 55,
     },
@@ -50,6 +50,13 @@ const useStyles = makeStyles((theme) => ({
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
         color: '#fff',
+    },
+    login: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: 10,
+        columnGap: 10
     }
 }));
 
@@ -68,20 +75,24 @@ export default function RegisterContainer() {
             return
         }
         setCarregando(true)
-        const resposta = await fetch('https://revisao-m03.herokuapp.com/usuarios', {
+        console.log(data)
+        const resposta = await fetch('http://localhost:3000/cadastro', {
             method: "POST",
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
             body: JSON.stringify(data),
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
             }
         });
         setCarregando(false);
-        if (resposta.ok) {
-            history.push('/home')
-        } else {
-            const dados = await resposta.json();
-            setError(dados);
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            setError(dados)
         }
+
     }
 
     return (
@@ -96,6 +107,9 @@ export default function RegisterContainer() {
                         <CustomTextfield label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>Seu nome é obrigatório!</span> : "Seu Nome"}
                             id="nome"
                             register={() => register('nome', { required: true })} />
+                        <CustomTextfield label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>O nome da loja é obrigatório!</span> : "Nome da loja"}
+                            id="nome_loja"
+                            register={() => register('nome_loja', { required: true })} />
                         <CustomTextfield label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>Email é obrigatório!</span> : "Email"}
                             id="Email"
                             register={() => register('email', { required: true })} />
@@ -107,11 +121,15 @@ export default function RegisterContainer() {
                             id="repetirsenha"
                             register={() => register('repetirsenha', { required: true })} />
                     </form>
+                    <div className={classes.error}>
+                        {validatePassword && <span style={{ color: 'red', paddingTop: 0 }}>Repita a senha corretamente!</span>}
+                    </div>
                     <Button variant="contained" color="primary" style={{ backgroundColor: '#007DFF' }} onClick={handleSubmit(registerNewUser)}>
                         CRIAR CONTA
                     </Button>
-                    <div className={classes.error}>
-                        {validatePassword && <span style={{ color: 'red', paddingTop: 0 }}>Repita a senha corretamente!</span>}
+                    <div className={classes.login}>
+                        <p>Já possui uma conta?</p>
+                        <a href="/">ACESSE</a>
                     </div>
                 </Typography>
                 <Backdrop className={classes.backdrop} open={carregando}>
