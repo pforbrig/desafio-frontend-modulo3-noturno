@@ -1,6 +1,7 @@
 import React from 'react';
 import useStyles from './style';
 import CustomGrid from '../CustomGrid';
+import CustomDrawer from '../CustomDrawer';
 
 export default function ProductContainer() {
 
@@ -8,6 +9,7 @@ export default function ProductContainer() {
 
     return (
         <div className={classes.root}>
+            <CustomDrawer />
             <CustomGrid />
         </div>
     );

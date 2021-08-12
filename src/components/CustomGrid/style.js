@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { getByDisplayValue } from "@testing-library/react";
 
 export default makeStyles((theme) => ({
     root: {
