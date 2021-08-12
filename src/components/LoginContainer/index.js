@@ -87,6 +87,7 @@ export default function RegisterContainer() {
 
         setToken(dados[0].token);
         setEstaLogado(true);
+        history.push("/produtos");
     }
 
 
