@@ -88,6 +88,7 @@ export default function RegisterContainer() {
         });
         setCarregando(false);
         const dados = await resposta.json();
+        history.push("/login");
 
         if (!resposta.ok) {
             setError(dados)
