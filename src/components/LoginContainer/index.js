@@ -38,14 +38,16 @@ export default function RegisterContainer() {
                 'Content-Type': 'application/json',
             }
         });
-        setCarregando(false);
         const dados = await resposta.json();
+        setCarregando(false);
 
         if (!resposta.ok) {
             setError(dados)
+            return
         }
 
         setToken(dados[0].token);
+        setPerfil(dados[0].usuario);
         setEstaLogado(true);
         history.push("/produtos");
     }

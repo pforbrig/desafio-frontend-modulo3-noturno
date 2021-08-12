@@ -15,16 +15,17 @@ export const ContextoDoLogin = createContext();
 function App() {
   const [estaLogado, setEstaLogado] = useState(false);
   const [token, setToken] = useState();
-  const [carregando, setCarregando] = useState(false)
-  const [error, setError] = useState('')
-  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError };
+  const [carregando, setCarregando] = useState(false);
+  const [error, setError] = useState('');
+  const [perfil, setPerfil] = useState('');
+  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError, perfil, setPerfil };
 
   function RotasProtegidas(props) {
     return (
       <Route
         render={() => props.estaLogado ?
           (props.children) :
-          <Redirect to='/login' />}
+          <Redirect to='/' />}
       />
     )
   }
@@ -33,9 +34,11 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={LoginContainer} />
-          <Route path="/cadastro" exact component={RegisterContainer} />
           <Route path="/produtos" exact component={ProductContainer} />
         </Switch>
+        <RotasProtegidas estaLogado={estaLogado}>
+          <Route path="/cadastro" exact component={RegisterContainer} />
+        </RotasProtegidas>
       </Router>
     </ContextoDoLogin.Provider>
   );
