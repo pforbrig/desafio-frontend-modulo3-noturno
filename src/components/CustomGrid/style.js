@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import { getByDisplayValue } from "@testing-library/react";
 
 export default makeStyles((theme) => ({
     root: {
@@ -7,11 +8,22 @@ export default makeStyles((theme) => ({
     paper: {
         height: 433,
         width: 232,
+        borderRadius: 20,
+        display: 'flex'
+    },
+    button: {
+        width: 48,
+        height: 48,
+        borderRadius: 40,
+        marginTop: 20,
+        marginLeft: 20,
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+
     },
     delete: {
-        borderRadius: 200,
         color: '#000000',
-        width: 48,
-        borderRadius: 48,
     }
 }));
