@@ -8,6 +8,7 @@ import {
 import { useState, createContext } from 'react';
 import LoginContainer from './components/LoginContainer'
 import RegisterContainer from './components/RegisterContainer';
+import ProductContainer from './components/ProductContainer';
 
 export const ContextoDoLogin = createContext();
 
@@ -33,6 +34,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={LoginContainer} />
           <Route path="/cadastro" exact component={RegisterContainer} />
+          <Route path="/produtos" exact component={ProductContainer} />
         </Switch>
       </Router>
     </ContextoDoLogin.Provider>
