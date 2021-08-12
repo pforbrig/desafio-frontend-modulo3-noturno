@@ -8,9 +8,16 @@ export default function ProductContainer() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <CustomDrawer />
-            <CustomGrid />
-        </div>
+        <>
+            <div className={classes.title}>
+                <h1>Nome da Loja</h1>
+                <h2>Seus produtos</h2>
+            </div>
+            <div className={classes.root}>
+                <CustomDrawer />
+                <CustomGrid />
+            </div>
+        </>
+
     );
 }

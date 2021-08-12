@@ -4,7 +4,8 @@ export default makeStyles((theme) => ({
     root: {
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
+    title: {
+        paddingLeft: 214
+    }
 }));

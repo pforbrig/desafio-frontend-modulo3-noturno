@@ -31,4 +31,14 @@ export default makeStyles((theme) => ({
         width: 232,
         height: 240,
     },
+    product: {
+        display: 'flex',
+        columnGap: 64,
+        alignItems: 'center',
+        paddingLeft: 16,
+    },
+    titleproduct: {
+        paddingLeft: 16,
+        paddingBottom: 30,
+    }
 }));
