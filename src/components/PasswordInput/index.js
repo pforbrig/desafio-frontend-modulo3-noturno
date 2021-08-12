@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,22 +8,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    margin: {
-        margin: theme.spacing(1),
-    },
-    withoutLabel: {
-        marginTop: theme.spacing(3),
-    },
-    textField: {
-        width: '25ch',
-    },
-}));
 
 export default function PasswordInput(props) {
     const classes = useStyles();

@@ -2,7 +2,7 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
 import Button from '@material-ui/core/Button';
 import PasswordInput from '../PasswordInput';
 import CustomTextfield from '../CustomTextfield';
@@ -18,46 +18,6 @@ import MuiAlert from '@material-ui/lab/Alert';
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
-const useStyles = makeStyles((theme) => ({
-    main: {
-        textAlign: 'center',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-    },
-    error: {
-        paddingBottom: 0,
-        paddingTop: 5,
-        marginBottom: 0,
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-    root: {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        rowGap: 67,
-        columnGap: 40,
-        paddingBottom: 55,
-    },
-    titulo: {
-        paddingTop: 48,
-        paddingBottom: 55,
-    },
-    cadastro: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingTop: 10,
-        columnGap: 10
-    },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
-    }
-}));
 
 export default function RegisterContainer() {
     const classes = useStyles();
@@ -101,10 +61,12 @@ export default function RegisterContainer() {
                         <Typography component='h1' variant='h5'>Login</Typography>
                     </div>
                     <form className={classes.root}>
-                        <CustomTextfield label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>Digite seu email!</span> : "Email"}
+                        <CustomTextfield
+                            label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>Digite seu email!</span> : "Email"}
                             id="Email"
                             register={() => register('email', { required: true })} />
-                        <PasswordInput label={errors.senha?.type === 'required' ? <span style={{ color: 'red' }}>Digite sua senha!</span> : "Senha"}
+                        <PasswordInput
+                            label={errors.senha?.type === 'required' ? <span style={{ color: 'red' }}>Digite sua senha!</span> : "Senha"}
                             id="Senha"
                             register={() => register('senha', { required: true })} />
                     </form>
