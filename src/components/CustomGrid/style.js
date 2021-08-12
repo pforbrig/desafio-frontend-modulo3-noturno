@@ -9,7 +9,8 @@ export default makeStyles((theme) => ({
         height: 433,
         width: 232,
         borderRadius: 20,
-        display: 'flex'
+        display: 'flex',
+        flexDirection: 'column'
     },
     button: {
         width: 48,
@@ -18,6 +19,7 @@ export default makeStyles((theme) => ({
         marginTop: 20,
         marginLeft: 20,
         position: 'absolute',
+        zIndex: 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -25,5 +27,9 @@ export default makeStyles((theme) => ({
     },
     delete: {
         color: '#000000',
-    }
+    },
+    img: {
+        width: 232,
+        height: 240,
+    },
 }));
