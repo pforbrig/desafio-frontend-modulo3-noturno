@@ -13,29 +13,30 @@ export default function ProductContainer() {
     const classes = useStyles();
     const history = useHistory();
     const { handleSubmit, register, formState: { errors } } = useForm();
-    const { perfil, token, carregando, setCarregando, error, setError } = useContext(ContextoDoLogin);
+    const { perfil, token, carregando, setCarregando, error, setError, handleAlertClose } = useContext(ContextoDoLogin);
 
-    async function addNewProduct() {
+    async function addNewProduct(data) {
         setError('');
         setCarregando(true);
         const resposta = await fetch('http://localhost:3000/produtos', {
-            method: "GET",
+            method: "POST",
             mode: 'cors',
             cache: 'no-cache',
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token} `
-            }
+            },
+            body: JSON.stringify(data),
         });
         const dados = await resposta.json();
         setCarregando(false);
 
         if (!resposta.ok) {
             setError(dados)
-            history.push('/')
             return
         }
+        history.push('Produtos');
     }
 
 
@@ -83,8 +84,8 @@ export default function ProductContainer() {
             <Backdrop className={classes.backdrop} open={carregando}>
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Snackbar open={error} autoHideDuration={6000}>
-                <Alert severity="error">
+            <Snackbar open={error} autoHideDuration={100} onClose={handleAlertClose}>
+                <Alert onClose={handleAlertClose} severity="error">
                     {error}
                 </Alert>
             </Snackbar>

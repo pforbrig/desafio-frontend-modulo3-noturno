@@ -23,7 +23,7 @@ export default function RegisterContainer() {
     const classes = useStyles();
     const { handleSubmit, register, formState: { errors } } = useForm();
     const [validatePassword, setValidatePassword] = React.useState(false);
-    const { carregando, setCarregando, error, setError } = useContext(ContextoDoLogin);
+    const { carregando, setCarregando, error, setError, handleAlertClose } = useContext(ContextoDoLogin);
     const history = useHistory();
 
 
@@ -99,8 +99,8 @@ export default function RegisterContainer() {
                 <Backdrop className={classes.backdrop} open={carregando}>
                     <CircularProgress color="inherit" />
                 </Backdrop>
-                <Snackbar open={error} autoHideDuration={6000}>
-                    <Alert severity="error">
+                <Snackbar open={error} autoHideDuration={100} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="error">
                         {error}
                     </Alert>
                 </Snackbar>

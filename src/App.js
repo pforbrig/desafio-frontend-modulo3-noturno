@@ -19,7 +19,11 @@ function App() {
   const [carregando, setCarregando] = useState(false);
   const [error, setError] = useState('');
   const [perfil, setPerfil] = useState('');
-  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError, perfil, setPerfil };
+  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError, perfil, setPerfil, handleAlertClose };
+
+  function handleAlertClose() {
+    setError('');
+  }
 
   function RotasProtegidas(props) {
     return (

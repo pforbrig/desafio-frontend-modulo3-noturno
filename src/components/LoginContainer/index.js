@@ -1,17 +1,12 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import { Container, Typography, CssBaseline, Button, CircularProgress, Backdrop } from '@material-ui/core/';
 import useStyles from './style';
-import Button from '@material-ui/core/Button';
 import PasswordInput from '../PasswordInput';
 import CustomTextfield from '../CustomTextfield';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { ContextoDoLogin } from '../../App'
 import { useContext } from "react";
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
@@ -23,7 +18,7 @@ export default function RegisterContainer() {
     const classes = useStyles();
     const { handleSubmit, register, formState: { errors } } = useForm()
     const history = useHistory();
-    const { setPerfil, setEstaLogado, setToken, carregando, setCarregando, error, setError } = useContext(ContextoDoLogin);
+    const { setPerfil, setEstaLogado, setToken, carregando, setCarregando, error, setError, handleAlertClose } = useContext(ContextoDoLogin);
 
     async function login(data) {
         setError('');
@@ -84,8 +79,8 @@ export default function RegisterContainer() {
                     </Backdrop>
 
                 </Typography>
-                <Snackbar open={error} autoHideDuration={6000}>
-                    <Alert severity="error">
+                <Snackbar open={error} autoHideDuration={100} onClose={handleAlertClose}>
+                    <Alert onClose={handleAlertClose} severity="error">
                         {error}
                     </Alert>
                 </Snackbar>
