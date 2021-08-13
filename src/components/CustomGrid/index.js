@@ -5,16 +5,18 @@ import Paper from '@material-ui/core/Paper';
 import { Button, Typography } from '@material-ui/core';
 import DeleteSweepRoundedIcon from '@material-ui/icons/DeleteSweepRounded';
 import imagem from '../../imagem/Rectangle 4.png'
+import { useHistory } from 'react-router-dom';
 
 export default function CustomGrid({ produtos }) {
 
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <>
             <Grid container className={classes.root} spacing={2}>
                 <Grid item xs={12}>
-                    <Grid container justifyContent="left" spacing={2}>
+                    <Grid container spacing={2}>
                         {produtos && produtos.map((produto) => (
                             <Grid key={produto.id} item>
                                 <Paper className={classes.paper}>
@@ -44,7 +46,7 @@ export default function CustomGrid({ produtos }) {
                             </Grid>
                         ))}
                     </Grid>
-                    <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} >
+                    <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={() => history.push('/produtos/novo')} >
                         ADICIONAR PRODUTO
                     </Button>
                 </Grid>

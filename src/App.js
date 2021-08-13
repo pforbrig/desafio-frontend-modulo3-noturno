@@ -9,6 +9,7 @@ import { useState, createContext } from 'react';
 import LoginContainer from './components/LoginContainer'
 import RegisterContainer from './components/RegisterContainer';
 import ProductContainer from './components/ProductContainer';
+import ProductAdd from './components/ProductAdd';
 
 export const ContextoDoLogin = createContext();
 
@@ -34,10 +35,12 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={LoginContainer} />
+          <Route path="/cadastro" exact component={RegisterContainer} />
           <Route path="/produtos" exact component={ProductContainer} />
         </Switch>
         <RotasProtegidas estaLogado={estaLogado}>
-          <Route path="/cadastro" exact component={RegisterContainer} />
+
+          <Route path="/produtos/novo" exact component={ProductAdd} />
         </RotasProtegidas>
       </Router>
     </ContextoDoLogin.Provider>
