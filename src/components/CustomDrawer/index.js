@@ -3,9 +3,9 @@ import useStyles from './style';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import StorefrontIcon from '@material-ui/icons/Storefront';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ClearIcon from '@material-ui/icons/Clear';
 
 export default function CustomDrawer() {
     const classes = useStyles();
@@ -19,11 +19,15 @@ export default function CustomDrawer() {
                 style={{ color: '#000000' }}
             >
                 <List className={classes.list}>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon className={classes.icons} >{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        </ListItem>
-                    ))}
+                    <ListItem button >
+                        <StorefrontIcon className={classes.icons} />
+                    </ListItem>
+                    <ListItem button >
+                        <AccountCircleIcon className={classes.icons} />
+                    </ListItem>
+                    <ListItem button >
+                        <ClearIcon className={classes.icons} />
+                    </ListItem>
                 </List>
             </Drawer>
         </div>

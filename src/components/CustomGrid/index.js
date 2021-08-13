@@ -6,7 +6,7 @@ import { Button, Typography } from '@material-ui/core';
 import DeleteSweepRoundedIcon from '@material-ui/icons/DeleteSweepRounded';
 import imagem from '../../imagem/Rectangle 4.png'
 
-export default function CustomGrid() {
+export default function CustomGrid({ produtos }) {
 
     const classes = useStyles();
 
@@ -14,10 +14,9 @@ export default function CustomGrid() {
         <>
             <Grid container className={classes.root} spacing={2}>
                 <Grid item xs={12}>
-                    <Grid container justifyContent="center" spacing={2}>
-                        {[0, 1, 2, 3].map((value) => (
-                            <Grid key={value} item>
-
+                    <Grid container justifyContent="left" spacing={2}>
+                        {produtos && produtos.map((produto) => (
+                            <Grid key={produto.id} item>
                                 <Paper className={classes.paper}>
                                     <img className={classes.img} alt="imagem do produto" src={imagem} />
                                     <Button
@@ -29,22 +28,25 @@ export default function CustomGrid() {
                                     </Button>
                                     <div className={classes.titleproduct}>
                                         <Typography gutterBottom variant="subtitle1">
-                                            Nome do produto
+                                            {produto.nome}
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
-                                            Descrição do produto
+                                            {produto.descricao}
                                         </Typography>
                                     </div>
                                     <div className={classes.product}>
                                         <Typography variant="body2" color="textSecondary">
-                                            UNIDADES
+                                            {produto.estoque} UNIDADES
                                         </Typography>
-                                        <Typography variant="subtitle1">R$</Typography>
+                                        <Typography variant="subtitle1">R$ {produto.preco / 100}</Typography>
                                     </div>
                                 </Paper>
                             </Grid>
                         ))}
                     </Grid>
+                    <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} >
+                        ADICIONAR PRODUTO
+                    </Button>
                 </Grid>
             </Grid>
         </>

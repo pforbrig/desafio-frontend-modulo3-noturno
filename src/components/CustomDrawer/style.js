@@ -10,12 +10,14 @@ export default makeStyles((theme) => ({
     list: {
         backgroundColor: '#434343',
         height: '100vh',
-        paddingTop: 118
+        paddingTop: 118,
+        display: 'flex',
+        flexDirection: 'column',
+        rowGap: 30,
     },
     icons: {
-        color: 'white',
-        width: 73,
-        height: 73,
+        width: 32,
+        height: 32,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
