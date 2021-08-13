@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useStyles from './style';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -17,7 +17,7 @@ export default function CustomGrid({ produtos }) {
             <Grid container className={classes.root} spacing={2}>
                 <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        {produtos.length > 0 ? produtos.map((produto) => (
+                        {produtos.length > 1 ? produtos.map((produto) => (
                             <Grid key={produto.id} item>
                                 <Paper className={classes.paper}>
                                     <img className={classes.img} alt="imagem do produto" src={imagem} />
@@ -44,7 +44,7 @@ export default function CustomGrid({ produtos }) {
                                     </div>
                                 </Paper>
                             </Grid>
-                        )) : <h1>Você ainda não tem produtos, cadastre um produto!</h1>}
+                        )) : <h1>V</h1>}
                     </Grid>
                     <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={() => history.push('/produtos/novo')} >
                         ADICIONAR PRODUTO

@@ -40,9 +40,9 @@ function App() {
         <Switch>
           <Route path="/cadastro" component={RegisterContainer} />
           <Route path="/" exact component={LoginContainer} />
-          <Route path="/produtos" exact component={ProductContainer} />
           <RotasProtegidas estaLogado={estaLogado}>
-            <Route path="/produtos/novo" exact component={ProductAdd} />
+            <Route path="/produtos" component={ProductContainer} />
+            <Route path="/produtos-novo" component={ProductAdd} />
           </RotasProtegidas>
         </Switch>
       </Router>
