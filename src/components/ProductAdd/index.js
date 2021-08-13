@@ -49,22 +49,37 @@ export default function ProductContainer() {
                 <form className={classes.form}>
                     <CustomDrawer />
                     <CustomTextfield
-                        label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>Seu nome é obrigatório!</span> : "Seu Nome"}
+                        label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>O nome do produto é obrigatório!</span> : "Nome do Produto"}
                         id="nome"
                         register={() => register('nome', { required: true })} />
                     <CustomTextfield
-                        label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>O nome da loja é obrigatório!</span> : "Nome da loja"}
-                        id="nome_loja"
-                        register={() => register('nome_loja', { required: true })} />
+                        label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>O preço é obrigatório!</span> : "Preço"}
+                        id="preco"
+                        register={() => register('preco', { required: true })} />
                     <CustomTextfield
-                        label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>Email é obrigatório!</span> : "Email"}
-                        id="Email"
-                        register={() => register('email', { required: true })} />
+                        label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>A quantidade em estoque é obrigatória!</span> : "Estoque"}
+                        id="estoque"
+                        register={() => register('estoque', { required: true })} />
+                    <CustomTextfield
+                        label={errors.email?.type === 'required' ? <span style={{ color: 'red' }}>A eescrição do produto é obrigatório!</span> : "Descrição do produto"}
+                        id="descricao"
+                        register={() => register('descricao', { required: true })} />
+                    <CustomTextfield
+                        label='Imagem'
+                        id="Imagem"
+                        register={() => register('imagem')} />
+                    <CustomTextfield
+                        label='Categoria'
+                        id="Categoria"
+                        register={() => register('categoria')} />
                 </form>
+                <div className={classes.buttons}>
+                    <a href="/produtos">CANCELAR</a>
+                    <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={handleSubmit(addNewProduct)} >
+                        ADICIONAR PRODUTO
+                    </Button>
+                </div>
             </div>
-            <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={handleSubmit(addNewProduct)} >
-                ADICIONAR PRODUTO
-            </Button>
             <Backdrop className={classes.backdrop} open={carregando}>
                 <CircularProgress color="inherit" />
             </Backdrop>

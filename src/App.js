@@ -39,8 +39,8 @@ function App() {
           <Route path="/produtos" exact component={ProductContainer} />
         </Switch>
         <RotasProtegidas estaLogado={estaLogado}>
-
           <Route path="/produtos/novo" exact component={ProductAdd} />
+
         </RotasProtegidas>
       </Router>
     </ContextoDoLogin.Provider>
