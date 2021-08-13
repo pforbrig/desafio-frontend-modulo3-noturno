@@ -34,14 +34,13 @@ function App() {
     <ContextoDoLogin.Provider value={valorPassadoPeloContexto}>
       <Router>
         <Switch>
+          <Route path="/cadastro" component={RegisterContainer} />
           <Route path="/" exact component={LoginContainer} />
-          <Route path="/cadastro" exact component={RegisterContainer} />
           <Route path="/produtos" exact component={ProductContainer} />
+          <RotasProtegidas estaLogado={estaLogado}>
+            <Route path="/produtos/novo" exact component={ProductAdd} />
+          </RotasProtegidas>
         </Switch>
-        <RotasProtegidas estaLogado={estaLogado}>
-          <Route path="/produtos/novo" exact component={ProductAdd} />
-
-        </RotasProtegidas>
       </Router>
     </ContextoDoLogin.Provider>
   );
