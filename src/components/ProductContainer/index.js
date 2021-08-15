@@ -9,6 +9,7 @@ import { Alert } from '@material-ui/lab';
 
 export default function ProductContainer() {
     const classes = useStyles();
+    const icon = 'loja'
     const { perfil, token, handleAlertClose } = useContext(ContextoDoLogin);
     const [produtos, setProdutos] = useState([]);
     const [carregando, setCarregando] = useState(false);
@@ -57,7 +58,7 @@ export default function ProductContainer() {
                 <h2>Seus produtos</h2>
             </div>
             <div className={classes.root}>
-                <CustomDrawer />
+                <CustomDrawer icon={icon} />
                 <CustomGrid produtos={produtos} />
             </div>
             <Backdrop className={classes.backdrop} open={carregando}>

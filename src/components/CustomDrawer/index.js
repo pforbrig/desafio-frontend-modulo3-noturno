@@ -3,14 +3,16 @@ import useStyles from './style';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import StorefrontIcon from '@material-ui/icons/Storefront';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ClearIcon from '@material-ui/icons/Clear';
 import { useContext } from "react";
 import { ContextoDoLogin } from '../../App'
 import { useHistory } from 'react-router';
+import Loja from '../../imagem/loja.svg'
+import Loja2 from '../../imagem/loja2.svg'
+import Logout from '../../imagem/logout.svg'
+import Perfil from '../../imagem/perfil.svg'
+import Perfil2 from '../../imagem/perfil2.svg'
 
-export default function CustomDrawer() {
+export default function CustomDrawer({ icon }) {
     const classes = useStyles();
     const { setEstaLogado, setToken } = useContext(ContextoDoLogin);
     const history = useHistory();
@@ -31,16 +33,17 @@ export default function CustomDrawer() {
             >
                 <List className={classes.list}>
                     <ListItem button >
-                        <StorefrontIcon className={classes.icons} />
+                        {icon === 'loja' ? <img src={Loja} alt='loja' className={classes.iconsfocus} /> : <img src={Loja2} alt='loja' className={classes.icons} />}
                     </ListItem>
                     <ListItem button >
-                        <AccountCircleIcon className={classes.icons} />
+                        {icon === 'perfil' ? <img src={Perfil} alt='perfil' className={classes.iconsfocus} /> : <img src={Perfil2} alt='perfil' className={classes.icons} />}
                     </ListItem>
                     <ListItem button
                         onClick={handleLogout} >
-                        <ClearIcon className={classes.icons}
-                            onClick={handleLogout} >
-                        </ClearIcon>
+                        <img src={Logout}
+                            alt='logout'
+                            className={classes.icons}
+                            onClick={handleLogout} />
                     </ListItem>
                 </List>
             </Drawer>

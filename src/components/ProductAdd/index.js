@@ -12,6 +12,7 @@ import CustomDrawer from '../CustomDrawer';
 export default function ProductContainer() {
     const classes = useStyles();
     const history = useHistory();
+    const icon = 'loja';
     const { handleSubmit, register, formState: { errors } } = useForm();
     const { perfil, token, carregando, setCarregando, error, setError, handleAlertClose } = useContext(ContextoDoLogin);
 
@@ -48,7 +49,7 @@ export default function ProductContainer() {
             </div>
             <div className={classes.root}>
                 <form className={classes.form}>
-                    <CustomDrawer />
+                    <CustomDrawer icon={icon} />
                     <CustomTextfield
                         label={errors.nome?.type === 'required' ? <span style={{ color: 'red' }}>O nome do produto é obrigatório!</span> : "Nome do Produto"}
                         id="nome"

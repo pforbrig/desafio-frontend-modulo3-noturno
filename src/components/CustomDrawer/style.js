@@ -13,13 +13,18 @@ export default makeStyles((theme) => ({
         paddingTop: 118,
         display: 'flex',
         flexDirection: 'column',
+        alignItems: "center",
         rowGap: 30,
     },
-    icons: {
-        width: 32,
-        height: 32,
+    iconsfocus: {
+        width: 73,
+        height: 73,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        alignSelf: 'center',
+    },
+    icons: {
+        width: 53,
+        height: 53,
+        paddingLeft: 20,
     }
 }));
