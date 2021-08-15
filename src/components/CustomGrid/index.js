@@ -57,7 +57,7 @@ export default function CustomGrid({ produtos }) {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid className={classes.root} container spacing={2}>
-                        {produtos.length > 1 ? produtos.map((produto) => (
+                        {produtos.length > 0 ? produtos.map((produto) => (
                             <Grid key={produto.id}>
                                 <Paper className={classes.paper} >
                                     <img className={classes.img} alt="imagem do produto" src={produto.imagem ? (produto.imagem.includes('http') ? produto.imagem : imagem) : imagem} />
@@ -111,7 +111,7 @@ export default function CustomGrid({ produtos }) {
                                     </div>
                                 </Paper>
                             </Grid>
-                        )) : <h1>V</h1>}
+                        )) : <h1>Você ainda não tem produtos cadastrados!</h1>}
                     </Grid>
                     <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={() => history.push('/produtos/novo')} >
                         ADICIONAR PRODUTO
