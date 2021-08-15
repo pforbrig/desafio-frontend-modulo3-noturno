@@ -99,7 +99,7 @@ export default function RegisterContainer() {
                 <Backdrop className={classes.backdrop} open={carregando}>
                     <CircularProgress color="inherit" />
                 </Backdrop>
-                <Snackbar open={error} autoHideDuration={100} onClose={handleAlertClose}>
+                <Snackbar open={error} autoHideDuration={2000} onClose={handleAlertClose}>
                     <Alert onClose={handleAlertClose} severity="error">
                         {error}
                     </Alert>
