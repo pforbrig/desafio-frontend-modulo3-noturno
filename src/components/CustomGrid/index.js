@@ -60,7 +60,7 @@ export default function CustomGrid({ produtos }) {
                         {produtos.length > 1 ? produtos.map((produto) => (
                             <Grid key={produto.id}>
                                 <Paper className={classes.paper} >
-                                    <img className={classes.img} alt="imagem do produto" src={imagem} />
+                                    <img className={classes.img} alt="imagem do produto" src={produto.imagem ? (produto.imagem.includes('http') ? produto.imagem : imagem) : imagem} />
                                     <Button
                                         variant="contained"
                                         color="secondary"
