@@ -19,7 +19,8 @@ function App() {
   const [carregando, setCarregando] = useState(false);
   const [error, setError] = useState('');
   const [perfil, setPerfil] = useState('');
-  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError, perfil, setPerfil, handleAlertClose };
+  const [produtoAtual, setProdutoAtual] = useState('');
+  const valorPassadoPeloContexto = { estaLogado, setEstaLogado, token, setToken, carregando, setCarregando, error, setError, perfil, setPerfil, handleAlertClose, produtoAtual, setProdutoAtual };
 
   function handleAlertClose() {
     setError('');
@@ -41,8 +42,8 @@ function App() {
           <Route path="/cadastro" component={RegisterContainer} />
           <Route path="/" exact component={LoginContainer} />
           <RotasProtegidas estaLogado={estaLogado}>
-            <Route path="/produtos" component={ProductContainer} />
-            <Route path="/produtos-novo" component={ProductAdd} />
+            <Route path="/produtos" exact component={ProductContainer} />
+            <Route path="/produtos/novo" component={ProductAdd} />
           </RotasProtegidas>
         </Switch>
       </Router>

@@ -1,7 +1,6 @@
 import React from 'react';
 import useStyles from './style';
 import { useContext, useEffect, useState } from "react";
-import { useHistory } from 'react-router';
 import { ContextoDoLogin } from '../../App'
 import CustomGrid from '../CustomGrid';
 import CustomDrawer from '../CustomDrawer';
@@ -10,8 +9,7 @@ import { Alert } from '@material-ui/lab';
 
 export default function ProductContainer() {
     const classes = useStyles();
-    const history = useHistory();
-    const { perfil, token } = useContext(ContextoDoLogin);
+    const { perfil, token, handleAlertClose } = useContext(ContextoDoLogin);
     const [produtos, setProdutos] = useState([]);
     const [carregando, setCarregando] = useState(false);
     const [error, setError] = useState('');
@@ -65,8 +63,8 @@ export default function ProductContainer() {
             <Backdrop className={classes.backdrop} open={carregando}>
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Snackbar open={error} autoHideDuration={6000}>
-                <Alert severity="error">
+            <Snackbar open={error} autoHideDuration={2000} onClose={handleAlertClose}>
+                <Alert onClose={handleAlertClose} severity="error">
                     {error}
                 </Alert>
             </Snackbar>

@@ -36,7 +36,7 @@ export default function ProductContainer() {
             setError(dados)
             return
         }
-        history.push('Produtos');
+        history.push('/produtos');
     }
 
 
@@ -75,7 +75,7 @@ export default function ProductContainer() {
                         register={() => register('categoria')} />
                 </form>
                 <div className={classes.buttons}>
-                    <a href="/produtos">CANCELAR</a>
+                    <a href="/produtos" onClick={() => history.push('/produtos')}>CANCELAR</a>
                     <Button variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#007DFF' }} onClick={handleSubmit(addNewProduct)} >
                         ADICIONAR PRODUTO
                     </Button>
@@ -84,7 +84,7 @@ export default function ProductContainer() {
             <Backdrop className={classes.backdrop} open={carregando}>
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Snackbar open={error} autoHideDuration={100} onClose={handleAlertClose}>
+            <Snackbar open={error} autoHideDuration={2000} onClose={handleAlertClose}>
                 <Alert onClose={handleAlertClose} severity="error">
                     {error}
                 </Alert>
