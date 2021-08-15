@@ -10,6 +10,7 @@ import LoginContainer from './components/LoginContainer'
 import RegisterContainer from './components/RegisterContainer';
 import ProductContainer from './components/ProductContainer';
 import ProductAdd from './components/ProductAdd';
+import ProfileView from './components/ProfileView';
 
 export const ContextoDoLogin = createContext();
 
@@ -44,6 +45,7 @@ function App() {
           <RotasProtegidas estaLogado={estaLogado}>
             <Route path="/produtos" exact component={ProductContainer} />
             <Route path="/produtos/novo" component={ProductAdd} />
+            <Route path="/perfil" component={ProfileView} />
           </RotasProtegidas>
         </Switch>
       </Router>

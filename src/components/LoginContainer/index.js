@@ -79,7 +79,7 @@ export default function RegisterContainer() {
                     </Backdrop>
 
                 </Typography>
-                <Snackbar open={error} autoHideDuration={1000} onClose={handleAlertClose}>
+                <Snackbar open={error} autoHideDuration={2000} onClose={handleAlertClose}>
                     <Alert onClose={handleAlertClose} severity="error">
                         {error}
                     </Alert>

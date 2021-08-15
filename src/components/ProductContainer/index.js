@@ -9,7 +9,7 @@ import { Alert } from '@material-ui/lab';
 
 export default function ProductContainer() {
     const classes = useStyles();
-    const icon = 'loja'
+    const icon = 'loja';
     const { perfil, token, handleAlertClose } = useContext(ContextoDoLogin);
     const [produtos, setProdutos] = useState([]);
     const [carregando, setCarregando] = useState(false);
