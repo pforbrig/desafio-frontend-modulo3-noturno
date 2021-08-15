@@ -33,7 +33,7 @@ export default function CustomDrawer({ icon }) {
             >
                 <List className={classes.list}>
                     <ListItem button >
-                        {icon === 'loja' ? <img src={Loja} alt='loja' className={classes.iconsfocus} /> : <img src={Loja2} alt='loja' className={classes.icons} />}
+                        {icon === 'loja' ? <img src={Loja} alt='loja' className={classes.iconsfocus} onClick={() => history.push('/produtos')} /> : <img src={Loja2} alt='loja' className={classes.icons} onClick={() => history.push('/produtos')} />}
                     </ListItem>
                     <ListItem button >
                         {icon === 'perfil' ? <img src={Perfil} alt='perfil' className={classes.iconsfocus} onClick={() => history.push('/perfil')} /> : <img src={Perfil2} alt='perfil' className={classes.icons} onClick={() => history.push('/perfil')} />}
